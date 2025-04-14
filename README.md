@@ -1,73 +1,54 @@
-# Welcome to your Lovable project
 
-## Project info
+# FitLife - Modern Fitness App
 
-**URL**: https://lovable.dev/projects/d5123c75-4c8e-4238-aa26-afb78b271609
+A comprehensive fitness application with workout tracking, exercise library, workout planner, BMI calculator, and more!
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Dashboard**: Track your workout statistics and progress
+- **Workout Library**: Browse through a collection of curated workouts
+- **Exercise Database**: Explore exercises categorized by muscle groups
+- **Workout Planner**: Create custom workout routines
+- **BMI Calculator**: Calculate and track your Body Mass Index
+- **Workout Timer**: Time your workouts and rest periods
 
-**Use Lovable**
+## Technology Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d5123c75-4c8e-4238-aa26-afb78b271609) and start prompting.
+- React for the UI
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Shadcn UI for component library
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+1. Clone the repository:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```
+git clone https://github.com/yourusername/fit-life-on-github.git
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Navigate to the project directory:
 
-Follow these steps:
+```
+cd fit-life-on-github
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. Install dependencies:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. Start the development server:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project is configured to be easily deployed directly from GitHub. Simply push your changes to GitHub and deploy using GitHub Pages or other similar services.
 
-**Use GitHub Codespaces**
+## License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/d5123c75-4c8e-4238-aa26-afb78b271609) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+MIT
