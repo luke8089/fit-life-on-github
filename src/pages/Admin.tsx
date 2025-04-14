@@ -1,9 +1,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Dumbbell, Calendar, Activity } from "lucide-react";
+import { Users, Dumbbell, Calendar, Activity, AlertTriangle } from "lucide-react";
 import { useAdminData } from "@/hooks/useAdminData";
 import { toast } from "sonner";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function Admin() {
   const { data, isLoading, isError, refetch } = useAdminData();
@@ -17,12 +18,26 @@ export default function Admin() {
     toast.error("Failed to load admin data");
   }
 
+  // Check if Supabase environment variables are configured
+  const isSupabaseConfigured = 
+    import.meta.env.VITE_SUPABASE_URL && 
+    import.meta.env.VITE_SUPABASE_ANON_KEY;
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
         <p className="text-muted-foreground">Manage your fitness application.</p>
       </div>
+
+      {!isSupabaseConfigured && (
+        <Alert className="bg-yellow-50 border-yellow-500">
+          <AlertTriangle className="h-4 w-4 text-yellow-500" />
+          <AlertDescription className="text-yellow-700">
+            Supabase credentials not configured. Displaying mock data. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.
+          </AlertDescription>
+        </Alert>
+      )}
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
