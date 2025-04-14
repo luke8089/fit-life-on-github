@@ -2,8 +2,21 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Dumbbell, Calendar, Activity } from "lucide-react";
+import { useAdminData } from "@/hooks/useAdminData";
+import { toast } from "sonner";
 
 export default function Admin() {
+  const { data, isLoading, isError, refetch } = useAdminData();
+
+  const handleRefresh = async () => {
+    await refetch();
+    toast.success("Data refreshed successfully");
+  };
+
+  if (isError) {
+    toast.error("Failed to load admin data");
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-2">
@@ -18,7 +31,7 @@ export default function Admin() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">0</div>
+            <div className="text-2xl font-bold">{isLoading ? "..." : data?.totalUsers ?? 0}</div>
           </CardContent>
         </Card>
 
@@ -28,7 +41,7 @@ export default function Admin() {
             <Dumbbell className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">0</div>
+            <div className="text-2xl font-bold">{isLoading ? "..." : data?.activeWorkouts ?? 0}</div>
           </CardContent>
         </Card>
 
@@ -38,7 +51,7 @@ export default function Admin() {
             <Calendar className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">0</div>
+            <div className="text-2xl font-bold">{isLoading ? "..." : data?.scheduledSessions ?? 0}</div>
           </CardContent>
         </Card>
 
@@ -48,13 +61,13 @@ export default function Admin() {
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">0</div>
+            <div className="text-2xl font-bold">{isLoading ? "..." : data?.userActivity ?? 0}</div>
           </CardContent>
         </Card>
       </div>
 
-      <Button variant="outline" className="w-full">
-        Refresh Data
+      <Button variant="outline" className="w-full" onClick={handleRefresh} disabled={isLoading}>
+        {isLoading ? "Refreshing..." : "Refresh Data"}
       </Button>
     </div>
   );
