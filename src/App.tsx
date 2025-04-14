@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +12,7 @@ import Exercises from "./pages/Exercises";
 import WorkoutPlanner from "./pages/WorkoutPlanner";
 import BMICalculator from "./pages/BMICalculator";
 import Timer from "./pages/Timer";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,7 @@ const App = () => (
             <Route path="/planner" element={<WorkoutPlanner />} />
             <Route path="/calculator" element={<BMICalculator />} />
             <Route path="/timer" element={<Timer />} />
+            <Route path="/admin" element={<Admin />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
